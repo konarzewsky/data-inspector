@@ -1,3 +1,3 @@
-# projects
+# DATA INSPECTOR
 
-all projects
+Dash/plotly application written in Python used for data inspecting and visualisating.
