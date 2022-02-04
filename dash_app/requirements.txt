@@ -7,3 +7,4 @@ dash_daq==0.5.0
 dash-table==5.0.0
 pandas==1.4.0
 xlrd==2.0.1
+statsmodels==0.13.1
