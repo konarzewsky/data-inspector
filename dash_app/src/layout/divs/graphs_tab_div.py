@@ -32,5 +32,5 @@ def graphs_tab_layout(plot_div, components):
                 ],
             ),
         ],
-        style = main_tab_content_style(height=125),
+        style=main_tab_content_style(height=125),
     )

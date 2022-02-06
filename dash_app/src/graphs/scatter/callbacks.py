@@ -10,7 +10,6 @@ logger = prepare_logger()
 
 
 def init_callbacks_scatter(app):
-
     @app.callback(
         Output("scatter-y", "disabled"),
         Input("scatter-x", "value"),

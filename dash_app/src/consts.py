@@ -1,12 +1,4 @@
-PLOT_NAMES = [
-    "scatter",
-    "line",
-    "bar",
-    "histogram",
-    "box",
-    "map",
-    "corr"
-]
+PLOT_NAMES = ["scatter", "line", "bar", "histogram", "box", "map", "corr"]
 
 MAP_STYLES = [
     "basic",

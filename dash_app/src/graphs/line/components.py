@@ -48,7 +48,8 @@ line_components = html.Div(
                     id="line-agg",
                     disabled=True,
                     options=[
-                        {"label": function, "value": function} for function in LINE_AGG_FUNCTIONS
+                        {"label": function, "value": function}
+                        for function in LINE_AGG_FUNCTIONS
                     ],
                 ),
             ],

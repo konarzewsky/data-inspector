@@ -5,7 +5,7 @@ from src.layout.graph_style import transparent_plot
 
 def histogram_plot(data, x, color, bins, norm):
     df = pd.DataFrame(data)
-    figure =  px.histogram(
+    figure = px.histogram(
         df,
         x=x,
         color=color,

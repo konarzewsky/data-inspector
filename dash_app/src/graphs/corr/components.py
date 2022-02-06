@@ -13,7 +13,8 @@ corr_components = html.Div(
                 dcc.Dropdown(
                     id="corr-method",
                     options=[
-                        {"label": method, "value": method} for method in ["pearson", "kendall", "spearman"]
+                        {"label": method, "value": method}
+                        for method in ["pearson", "kendall", "spearman"]
                     ],
                     value="pearson",
                     clearable=False,

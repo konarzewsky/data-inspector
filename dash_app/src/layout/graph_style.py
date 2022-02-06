@@ -10,6 +10,6 @@ component_style = dict(
 )
 
 transparent_plot = {
-    'plot_bgcolor': 'rgba(0,0,0,0)',
-    'paper_bgcolor': 'rgba(0,0,0,0)',
+    "plot_bgcolor": "rgba(0,0,0,0)",
+    "paper_bgcolor": "rgba(0,0,0,0)",
 }

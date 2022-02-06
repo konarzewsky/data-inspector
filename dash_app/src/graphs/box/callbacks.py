@@ -10,7 +10,6 @@ logger = prepare_logger()
 
 
 def init_callbacks_box(app):
-    
     @app.callback(
         Output("box-group", "disabled"),
         Output("box-color", "disabled"),

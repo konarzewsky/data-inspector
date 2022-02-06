@@ -10,7 +10,6 @@ logger = prepare_logger()
 
 
 def init_callbacks_line(app):
-
     @app.callback(
         Output("line-y", "disabled"),
         Output("line-color", "disabled"),

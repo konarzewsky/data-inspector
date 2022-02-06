@@ -21,5 +21,5 @@ def view_tab_layout():
                 page_size=12,
             ),
         ],
-        style = main_tab_content_style(),
+        style=main_tab_content_style(),
     )

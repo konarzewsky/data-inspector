@@ -11,7 +11,6 @@ logger = prepare_logger()
 
 
 def init_callbacks_tab_inspect(app):
-    
     @app.callback(
         Output("inspect-size", "children"),
         Output("inspect-variables", "children"),
@@ -31,16 +30,19 @@ def init_callbacks_tab_inspect(app):
     def prepare_info_table(data):
         df = pd.DataFrame(data)
         logger.info("Preparing info table - in progress...")
-        df_info = pd.DataFrame({
-            "variable":list(df.columns),
-            "type":df.dtypes.astype('str'),
-            "missing values":df.count(),
-            "unique values": df.nunique(),
-        }).reset_index(drop=True)
-        df_info["missing values"] = df_info["missing values"].apply(lambda x: f"{len(df) - x} ({round(100*(len(df) - x)/len(df), 3)}%)")
+        df_info = pd.DataFrame(
+            {
+                "variable": list(df.columns),
+                "type": df.dtypes.astype("str"),
+                "missing values": df.count(),
+                "unique values": df.nunique(),
+            }
+        ).reset_index(drop=True)
+        df_info["missing values"] = df_info["missing values"].apply(
+            lambda x: f"{len(df) - x} ({round(100*(len(df) - x)/len(df), 3)}%)"
+        )
         columns = [
-            {"name": i, "id": i, "presentation": "markdown"}
-            for i in df_info.columns
+            {"name": i, "id": i, "presentation": "markdown"} for i in df_info.columns
         ]
         logger.info("Preparing info table - done")
         return df_info.to_dict("records"), columns
@@ -53,10 +55,16 @@ def init_callbacks_tab_inspect(app):
     def prepare_stats_table(data):
         df = pd.DataFrame(data)
         logger.info("Preparing stats table - in progress...")
-        df_info = df.describe(include='all').round(3).transpose().reset_index().rename(columns={"index": "variable"}).fillna("")
+        df_info = (
+            df.describe(include="all")
+            .round(3)
+            .transpose()
+            .reset_index()
+            .rename(columns={"index": "variable"})
+            .fillna("")
+        )
         columns = [
-            {"name": i, "id": i, "presentation": "markdown"}
-            for i in df_info.columns
+            {"name": i, "id": i, "presentation": "markdown"} for i in df_info.columns
         ]
         logger.info("Preparing stats table - done")
         return df_info.to_dict("records"), columns

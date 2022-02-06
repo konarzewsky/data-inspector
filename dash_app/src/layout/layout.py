@@ -27,7 +27,7 @@ def get_layout():
                                 disabled=False,
                                 style=main_tab_style,
                                 selected_style=main_tab_selected_style,
-                                children=[upload_tab_layout()]
+                                children=[upload_tab_layout()],
                             ),
                             dcc.Tab(
                                 label="View",

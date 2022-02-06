@@ -10,7 +10,6 @@ logger = prepare_logger()
 
 
 def init_callbacks_bar(app):
-    
     @app.callback(
         Output("bar-function", "disabled"),
         Output("bar-color", "disabled"),

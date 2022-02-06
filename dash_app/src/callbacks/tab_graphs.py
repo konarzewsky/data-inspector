@@ -22,7 +22,6 @@ logger = prepare_logger()
 
 
 def init_callbacks_tab_graphs(app):
-
     @app.callback(
         # output: all variables
         Output("scatter-x", "options"),
@@ -71,7 +70,7 @@ def init_callbacks_tab_graphs(app):
                     {"label": column, "value": column}
                     for column in pd.DataFrame(data).columns
                 ],
-                key = lambda d: d['label'],
+                key=lambda d: d["label"],
             ),
             "num": sorted(
                 [
@@ -79,10 +78,14 @@ def init_callbacks_tab_graphs(app):
                     for column in pd.DataFrame(data).columns
                     if is_numeric_dtype(pd.DataFrame(data)[column])
                 ],
-                key = lambda d: d['label'],
+                key=lambda d: d["label"],
             ),
         }
-        return (dropdown_options["all"],) * 15 + (dropdown_options["num"],) * 6 + (None,) * 13
+        return (
+            (dropdown_options["all"],) * 15
+            + (dropdown_options["num"],) * 6
+            + (None,) * 13
+        )
 
     init_callbacks_scatter(app)
     init_callbacks_map(app)

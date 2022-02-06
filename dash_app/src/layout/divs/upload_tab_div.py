@@ -12,7 +12,10 @@ def upload_tab_layout():
                     [
                         "Drag and drop your file here or ",
                         html.A("select"),
-                        html.P("supported types:    csv    xls    xlsx", style={"fontSize":15}),
+                        html.P(
+                            "supported types:    csv    xls    xlsx",
+                            style={"fontSize": 15},
+                        ),
                     ]
                 ),
                 style={
@@ -35,5 +38,5 @@ def upload_tab_layout():
                 id="uplod-error",
             ),
         ],
-        style = main_tab_content_style(),
+        style=main_tab_content_style(),
     )

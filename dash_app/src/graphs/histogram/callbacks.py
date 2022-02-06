@@ -10,7 +10,6 @@ logger = prepare_logger()
 
 
 def init_callbacks_histogram(app):
-    
     @app.callback(
         Output("histogram-color", "disabled"),
         Output("histogram-bins", "disabled"),

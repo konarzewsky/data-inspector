@@ -10,8 +10,21 @@ def to_panel_layout():
                 [
                     html.H1(
                         [
-                            html.P("DATA INSPECTOR", style={"fontSize":45, "display": "inline-block", }),
-                            html.P("get to know your data better", style={"fontSize":25, "display": "inline-block","margin-left": "20px",}),
+                            html.P(
+                                "DATA INSPECTOR",
+                                style={
+                                    "fontSize": 45,
+                                    "display": "inline-block",
+                                },
+                            ),
+                            html.P(
+                                "get to know your data better",
+                                style={
+                                    "fontSize": 25,
+                                    "display": "inline-block",
+                                    "margin-left": "20px",
+                                },
+                            ),
                         ],
                         style={
                             "fontFamily": "courier",

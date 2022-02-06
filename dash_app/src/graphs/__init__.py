@@ -24,11 +24,11 @@ from src.graphs.map.callbacks import init_callbacks_map
 
 
 components = dict(
-    scatter = scatter_components,
-    line = line_components,
-    bar = bar_components,
-    box = box_components,
-    corr = corr_components,
-    histogram = histogram_components,
-    map = map_components,
+    scatter=scatter_components,
+    line=line_components,
+    bar=bar_components,
+    box=box_components,
+    corr=corr_components,
+    histogram=histogram_components,
+    map=map_components,
 )

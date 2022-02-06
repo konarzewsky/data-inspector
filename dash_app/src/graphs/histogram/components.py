@@ -36,7 +36,8 @@ histogram_components = html.Div(
                             id="histogram-norm",
                             disabled=True,
                             options=[
-                                {"label": norm, "value": norm} for norm in HISTOGRAM_NORM
+                                {"label": norm, "value": norm}
+                                for norm in HISTOGRAM_NORM
                             ],
                             value="count",
                             clearable=False,

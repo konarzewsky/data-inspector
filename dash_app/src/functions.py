@@ -25,4 +25,8 @@ def parse_contents(contents, filename):
 
 def check_coordinates(data, lat, lon):
     df = pd.DataFrame(data)
-    return True if df[lat].between(-90, 90).all() and df[lon].between(-180, 180).all() else False
+    return (
+        True
+        if df[lat].between(-90, 90).all() and df[lon].between(-180, 180).all()
+        else False
+    )

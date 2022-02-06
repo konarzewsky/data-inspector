@@ -10,7 +10,6 @@ logger = prepare_logger()
 
 
 def init_callbacks_corr(app):
-    
     @app.callback(
         Output("corr-graph", "figure"),
         Output("corr-message", "children"),

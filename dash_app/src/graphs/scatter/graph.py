@@ -27,8 +27,8 @@ def scatter_2d(df, x, y, color, size, trendline):
         trendline="ols"
         if (trendline and is_numeric_dtype(df[x]) and is_numeric_dtype(df[y]))
         else None,
-        trendline_color_override='black',
-        trendline_scope = 'overall',
+        trendline_color_override="black",
+        trendline_scope="overall",
         title=f"Scatter plot {x} vs {y}",
     )
     if not size:

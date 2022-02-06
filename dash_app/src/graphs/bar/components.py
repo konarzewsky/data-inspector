@@ -26,7 +26,8 @@ bar_components = html.Div(
                             id="bar-function",
                             disabled=True,
                             options=[
-                                {"label": function, "value": function} for function in BAR_AGG_FUNCTIONS
+                                {"label": function, "value": function}
+                                for function in BAR_AGG_FUNCTIONS
                             ],
                             value="count",
                         ),
@@ -64,7 +65,8 @@ bar_components = html.Div(
                             id="bar-mode",
                             disabled=True,
                             options=[
-                                {"label": mode, "value": mode} for mode in ["relative", "group", "overlay"]
+                                {"label": mode, "value": mode}
+                                for mode in ["relative", "group", "overlay"]
                             ],
                             value="relative",
                         ),

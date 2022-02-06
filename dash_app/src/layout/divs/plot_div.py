@@ -34,7 +34,7 @@ def plot_div(plot_name, components):
                         [
                             dcc.Graph(
                                 id=f"{plot_name}-graph",
-                                figure = {
+                                figure={
                                     "layout": transparent_plot,
                                 },
                                 style={
@@ -51,10 +51,10 @@ def plot_div(plot_name, components):
                 ],
             ),
         ],
-        style = {
-            'border-style': 'solid',
-            'border-width': '2px',
-            'border-color': 'gainsboro',
+        style={
+            "border-style": "solid",
+            "border-width": "2px",
+            "border-color": "gainsboro",
             "backgroundColor": "whitesmoke",
             "margin-top": "10px",
         },

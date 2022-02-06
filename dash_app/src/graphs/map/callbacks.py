@@ -12,7 +12,6 @@ logger = prepare_logger()
 
 
 def init_callbacks_map(app):
-
     @app.callback(
         Output("map-style", "disabled"),
         Output("map-color", "disabled"),
@@ -46,7 +45,8 @@ def init_callbacks_map(app):
         if not check_coordinates(data, lat, lon):
             logger.warning("Creating map plot - invalid coordinates")
             return no_update, "Invalid coordinates"
-        figure = map_plot(data, lat, lon, style, color, size, hover, config["MAPBOX_ACCESS_TOKEN"])
+        figure = map_plot(
+            data, lat, lon, style, color, size, hover, config["MAPBOX_ACCESS_TOKEN"]
+        )
         logger.info("Creating map plot - done")
         return figure if figure else no_update, ""
-        

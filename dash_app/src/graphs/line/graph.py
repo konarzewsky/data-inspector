@@ -6,11 +6,7 @@ from src.layout.graph_style import transparent_plot
 def line_plot(data, x, y, color, function):
     df = aggregate_data(pd.DataFrame(data), x, color, function).sort_values(by=x)
     return px.line(
-        df,
-        x=x,
-        y=y,
-        color=color,
-        title=f"Line plot - {x} vs {function} {y}"
+        df, x=x, y=y, color=color, title=f"Line plot - {x} vs {function} {y}"
     ).update_layout(transparent_plot)
 
 
@@ -38,14 +34,18 @@ def aggregate_data(df, x, color, function):
 def q05(x):
     return x.quantile(0.05)
 
+
 def q25(x):
     return x.quantile(0.25)
+
 
 def q50(x):
     return x.quantile(0.5)
 
+
 def q75(x):
     return x.quantile(0.75)
+
 
 def q95(x):
     return x.quantile(0.95)
