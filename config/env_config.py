@@ -10,6 +10,6 @@ if len(config) == 0:
         'LINKEDIN_LOGO_URL': os.getenv('LINKEDIN_LOGO_URL'),
         'LINKEDIN_PROFILE_URL': os.getenv('LINKEDIN_PROFILE_URL'),
         'GITHUB_LOGO_URL': os.getenv('GITHUB_LOGO_URL'),
-        'GITHUB_PROFILE_URL': os.getenv('GITHUB_PROFILE_URL'),
+        'GITHUB_REPO_URL': os.getenv('GITHUB_REPO_URL'),
         'MAPBOX_ACCESS_TOKEN': os.getenv('MAPBOX_ACCESS_TOKEN'),
     }
