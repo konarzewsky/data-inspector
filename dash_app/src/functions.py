@@ -28,13 +28,4 @@ def parse_contents(contents, filename):
 
 def check_coordinates(data, lat, lon):
     df = pd.DataFrame(data)
-    try:
-        min_lat = df[lat].min()
-        min_lon = df[lon].min()
-        max_lat = df[lat].max()
-        max_lon = df[lon].max()
-        assert -90 <= min_lat <= max_lat <= 90
-        assert -180 <= min_lat <= max_lat <= 180
-        return True
-    except AssertionError:
-        return False
+    return True if df[lat].between(-90, 90).all() and df[lon].between(-180, 180).all() else False

@@ -7,6 +7,7 @@ import base64
 import dash_daq as daq
 from config.env_config import config
 from src.layout import *
+from src.consts import PLOT_NAMES
 
 
 def get_layout():
@@ -17,11 +18,14 @@ def get_layout():
                     html.Div(
                         [
                             html.H1(
-                                "DATA INSPECTOR",
+                                [
+                                    html.P("DATA INSPECTOR", style={"fontSize":45, "display": "inline-block", }),
+                                    html.P("get to know your data better", style={"fontSize":25, "display": "inline-block","margin-left": "20px",}),
+                                ],
                                 style={
                                     "fontFamily": "courier",
                                     "margin-left": "20px",
-                                    "padding-top": "10px",
+                                    "verticalAlign": "middle",
                                 },
                             ),
                         ],
@@ -96,8 +100,7 @@ def get_layout():
                 ],
                 id="div-top-panel",
                 style={
-                    "backgroundColor": "lightgrey",
-                    "height": "20vh",
+                    "backgroundColor": "silver",
                 },
             ),
             html.Div(
@@ -107,10 +110,12 @@ def get_layout():
                         value="tab-upload",
                         children=[
                             dcc.Tab(
-                                label="Upload data",
+                                label="Upload",
                                 id="tab-upload",
                                 value="tab-upload",
                                 disabled=False,
+                                style=main_tab_style,
+                                selected_style=main_tab_selected_style,
                                 children=[
                                     html.Div(
                                         [
@@ -134,6 +139,7 @@ def get_layout():
                                                     "margin": "5%",
                                                     "display": "inline-block",
                                                     "fontSize": 20,
+                                                    "backgroundColor": "white",
                                                 },
                                                 multiple=True,
                                             ),
@@ -141,18 +147,17 @@ def get_layout():
                                                 id="uplod-error",
                                             ),
                                         ],
-                                        style={
-                                            "backgroundColor": "transparent",
-                                            "height": "75vh",
-                                        },
+                                        style = main_tab_content_style(),
                                     ),
                                 ],
                             ),
                             dcc.Tab(
-                                label="View data",
+                                label="View",
                                 id="tab-view",
                                 value="tab-view",
                                 disabled=True,
+                                style=main_tab_style,
+                                selected_style=main_tab_selected_style,
                                 children=[
                                     dcc.Loading(
                                         id="table-loading",
@@ -166,33 +171,48 @@ def get_layout():
                                                         sort_action="native",
                                                         filter_action="native",
                                                         style_header={
-                                                            "backgroundColor": "lightgrey"
+                                                            "backgroundColor": "lightgrey",
                                                         },
                                                         style_table={
-                                                            "overflowY": "auto"
+                                                            "overflowY": "auto",
+                                                            "padding-top": "10px",
                                                         },
-                                                        page_size=25,
+                                                        page_size=12,
                                                     ),
                                                 ],
-                                                style=get_margins(5, "v"),
+                                                style = main_tab_content_style(),
                                             ),
                                         ],
-                                        style={"padding-top": "15%"},
+                                        style={
+                                            "padding-top": "15%",
+                                            "backgroundColor": "transparent",
+                                        },
                                     ),
                                 ],
                             ),
                             dcc.Tab(
-                                label="Inspect data",
+                                label="Inspect",
                                 id="tab-inspect",
                                 value="tab-inspect",
                                 disabled=True,
-                                children=[],
+                                style=main_tab_style,
+                                selected_style=main_tab_selected_style,
+                                children=[
+                                    html.Div(
+                                        [
+
+                                        ],
+                                        style = main_tab_content_style(),
+                                    ),
+                                ],
                             ),
                             dcc.Tab(
-                                label="Visualise data",
+                                label="Visualise",
                                 id="tab-graphs",
                                 value="tab-graphs",
                                 disabled=True,
+                                style=main_tab_style,
+                                selected_style=main_tab_selected_style,
                                 children=[
                                     html.Div(
                                         [
@@ -200,53 +220,23 @@ def get_layout():
                                                 id="tab-graphs-tabs",
                                                 value="tab-graphs-tab-scatter",
                                                 vertical=True,
-                                                style={"width": "10vw"},
+                                                style=dict(
+                                                    {"width": "10vw"},
+                                                    **plot_tabs_style,
+                                                ),
                                                 children=[
                                                     dcc.Tab(
-                                                        label="SCATTER",
-                                                        value="tab-graphs-tab-scatter",
-                                                        children=[plot_div("scatter")],
-                                                    ),
-                                                    dcc.Tab(
-                                                        label="LINE",
-                                                        value="tab-graphs-tab-line",
-                                                        children=[plot_div("line")],
-                                                    ),
-                                                    dcc.Tab(
-                                                        label="BAR",
-                                                        value="tab-graphs-tab-bar",
-                                                        children=[plot_div("bar")],
-                                                    ),
-                                                    dcc.Tab(
-                                                        label="PIE",
-                                                        value="tab-graphs-tab-pie",
-                                                        children=[plot_div("pie")],
-                                                    ),
-                                                    dcc.Tab(
-                                                        label="HISTOGRAM",
-                                                        value="tab-graphs-tab-histogram",
-                                                        children=[
-                                                            plot_div("histogram")
-                                                        ],
-                                                    ),
-                                                    dcc.Tab(
-                                                        label="BOX",
-                                                        value="tab-graphs-tab-box",
-                                                        children=[plot_div("box")],
-                                                    ),
-                                                    dcc.Tab(
-                                                        label="MAP",
-                                                        value="tab-graphs-tab-map",
-                                                        children=[plot_div("map")],
-                                                    ),
-                                                    dcc.Tab(
-                                                        label="CLUSTERING",
-                                                        value="tab-graphs-tab-cluster",
-                                                        children=[plot_div("cluster")],
-                                                    ),
+                                                        label=plot_name.upper(),
+                                                        value=f"tab-graphs-tab-{plot_name}",
+                                                        children=[plot_div(plot_name)],
+                                                        style=plot_tab_style,
+                                                        selected_style=plot_tab_selected_style,
+                                                    )
+                                                    for plot_name in PLOT_NAMES
                                                 ],
                                             ),
                                         ],
+                                        style = main_tab_content_style(height=125),
                                     ),
                                 ],
                             ),
@@ -261,7 +251,4 @@ def get_layout():
             dcc.Store(id="uploaded-data"),
         ],
         id="div-all",
-        # style={
-        #     "height": "100vh",
-        # },
     )

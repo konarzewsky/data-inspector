@@ -1,12 +1,14 @@
-from config.env_config import config
 import plotly.express as px
 import pandas as pd
+from src.layout.graphs import transparent_plot
 
 
-def map_plot(data, lat, lon, style, color, size, hover):
+def map_plot(data, lat, lon, style, color, size, hover, token):
     df = pd.DataFrame(data)
-    px.set_mapbox_access_token(config["MAPBOX_ACCESS_TOKEN"])
-    figure = px.scatter_mapbox(
+    px.set_mapbox_access_token(token)
+    if not style:
+        style = "streets"
+    return px.scatter_mapbox(
         df,
         lat=lat,
         lon=lon,
@@ -14,5 +16,4 @@ def map_plot(data, lat, lon, style, color, size, hover):
         color=color,
         size=size,
         hover_data=hover,
-    )
-    return figure, ""
+    ).update_layout(transparent_plot)
