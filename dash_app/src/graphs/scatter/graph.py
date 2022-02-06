@@ -1,7 +1,7 @@
 import plotly.express as px
 import pandas as pd
 from pandas.api.types import is_numeric_dtype
-from src.layout.graphs import transparent_plot
+from src.layout.graph_style import transparent_plot
 
 
 def scatter_plot(data, x, y, z, color, size, trendline):
@@ -27,7 +27,9 @@ def scatter_2d(df, x, y, color, size, trendline):
         trendline="ols"
         if (trendline and is_numeric_dtype(df[x]) and is_numeric_dtype(df[y]))
         else None,
-        trendline_color_override='black'
+        trendline_color_override='black',
+        trendline_scope = 'overall',
+        title=f"Scatter plot {x} vs {y}",
     )
     if not size:
         figure.update_traces(marker_size=5)
@@ -42,6 +44,7 @@ def scatter_3d(df, x, y, z, color, size):
         z=z,
         color=color,
         size=size,
+        title=f"Scatter plot {x} vs {y} vs {z}",
     )
     if not size:
         figure.update_traces(marker_size=5)

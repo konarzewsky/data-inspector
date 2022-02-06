@@ -1,6 +1,6 @@
 import plotly.express as px
 import pandas as pd
-from src.layout.graphs import transparent_plot
+from src.layout.graph_style import transparent_plot
 
 
 def box_plot(data, main, group, color):
@@ -10,4 +10,5 @@ def box_plot(data, main, group, color):
         x=group,
         y=main,
         color=color,
+        title=f"Box plot of {main}",
     ).update_layout(transparent_plot)

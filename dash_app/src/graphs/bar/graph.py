@@ -1,6 +1,6 @@
 import plotly.express as px
 import pandas as pd
-from src.layout.graphs import transparent_plot
+from src.layout.graph_style import transparent_plot
 
 
 def bar_plot(data, x, y, function, color, mode):
@@ -12,6 +12,7 @@ def bar_plot(data, x, y, function, color, mode):
         color=color,
         barmode=mode,
         text_auto=True,
+        title=f"{function} bar plot of {x}",
     ).update_layout(transparent_plot)
 
 

@@ -17,10 +17,10 @@ def init_callbacks_tab_view(app):
         Input("uploaded-data", "data"),
     )
     def display_datatable(data):
-        logger.info("Preparing table - in progress...")
+        logger.info("Preparing view table - in progress...")
         columns = [
             {"name": i, "id": i, "presentation": "markdown", "hideable": True}
             for i in pd.DataFrame(data).columns
         ]
-        logger.info("Preparing table - done")
+        logger.info("Preparing view table - done")
         return data, columns

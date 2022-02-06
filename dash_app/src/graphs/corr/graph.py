@@ -1,7 +1,7 @@
 import plotly.express as px
 import pandas as pd
 from pandas.api.types import is_numeric_dtype
-from src.layout.graphs import transparent_plot
+from src.layout.graph_style import transparent_plot
 
 
 def corr_plot(data, method):
@@ -16,4 +16,5 @@ def corr_plot(data, method):
         corr,
         text_auto=True,
         aspect="auto",
+        title="Correlation matrix",
     ).update_layout(transparent_plot)

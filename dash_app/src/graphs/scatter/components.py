@@ -2,7 +2,7 @@ from dash import dcc
 from dash import html
 import dash_daq as daq
 from src.layout.margins import get_margins
-from src.layout.graphs import component_style
+from src.layout.graph_style import component_style
 
 
 scatter_components = html.Div(

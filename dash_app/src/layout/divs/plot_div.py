@@ -1,18 +1,17 @@
 from dash import dcc
 from dash import html
 from src.layout.margins import get_margins
-from src.layout.graphs import components, transparent_plot
+from src.layout.graph_style import transparent_plot
 
 
-def get_components(plot_name):
+def get_components(plot_name, components):
     return components[plot_name]
 
 
-def plot_div(plot_name):
-    components = get_components(plot_name)
+def plot_div(plot_name, components):
     return html.Div(
         [
-            get_components(plot_name),
+            get_components(plot_name, components),
             html.Div(
                 [
                     html.Button(
@@ -56,7 +55,7 @@ def plot_div(plot_name):
             'border-style': 'solid',
             'border-width': '2px',
             'border-color': 'gainsboro',
-            "backgroundColor": "gainsboro",
+            "backgroundColor": "whitesmoke",
             "margin-top": "10px",
         },
     )

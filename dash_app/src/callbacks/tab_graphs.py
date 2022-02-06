@@ -7,13 +7,15 @@ from dash.exceptions import PreventUpdate
 
 from src.utils import prepare_logger
 
-from src.callbacks.tab_graphs.scatter import init_callbacks_scatter
-from src.callbacks.tab_graphs.map import init_callbacks_map
-from src.callbacks.tab_graphs.line import init_callbacks_line
-from src.callbacks.tab_graphs.bar import init_callbacks_bar
-from src.callbacks.tab_graphs.box import init_callbacks_box
-from src.callbacks.tab_graphs.corr import init_callbacks_corr
-from src.callbacks.tab_graphs.histogram import init_callbacks_histogram
+from src.graphs import (
+    init_callbacks_scatter,
+    init_callbacks_map,
+    init_callbacks_line,
+    init_callbacks_bar,
+    init_callbacks_box,
+    init_callbacks_corr,
+    init_callbacks_histogram,
+)
 
 
 logger = prepare_logger()

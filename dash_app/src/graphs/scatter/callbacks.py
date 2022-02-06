@@ -21,11 +21,12 @@ def init_callbacks_scatter(app):
     @app.callback(
         Output("scatter-z", "disabled"),
         Output("scatter-trendline", "disabled"),
+        Output("scatter-trendline", "on"),
         Input("scatter-y", "value"),
         Input("scatter-z", "value"),
     )
     def control_z_trendline(y, z):
-        return (False if y else True,) * 2
+        return (False if y else True,) * 2 + (False if z else no_update,)
 
     @app.callback(
         Output("scatter-color", "disabled"),

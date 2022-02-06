@@ -1,6 +1,6 @@
 import plotly.express as px
 import pandas as pd
-from src.layout.graphs import transparent_plot
+from src.layout.graph_style import transparent_plot
 
 
 def map_plot(data, lat, lon, style, color, size, hover, token):
@@ -16,4 +16,5 @@ def map_plot(data, lat, lon, style, color, size, hover, token):
         color=color,
         size=size,
         hover_data=hover,
+        title="Interactive map",
     ).update_layout(transparent_plot)

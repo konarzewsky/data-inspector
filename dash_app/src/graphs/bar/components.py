@@ -2,41 +2,43 @@ from dash import dcc
 from dash import html
 import dash_daq as daq
 from src.layout.margins import get_margins
-from src.layout.graphs import component_style
-from src.consts import MAP_STYLES
+from src.layout.graph_style import component_style
+from src.consts import BAR_AGG_FUNCTIONS
 
 
-map_components = html.Div(
+bar_components = html.Div(
     [
         html.Div(
             [
                 html.Div(
                     [
-                        html.P("Latitude variable"),
+                        html.P("X-axis variable"),
                         dcc.Dropdown(
-                            id="map-latitude",
+                            id="bar-x",
                         ),
                     ],
                     style=component_style,
                 ),
                 html.Div(
                     [
-                        html.P("Longitude variable"),
+                        html.P("Y-axis variable aggregation"),
                         dcc.Dropdown(
-                            id="map-longitude",
-                        ),
-                    ],
-                    style=component_style,
-                ),
-                html.Div(
-                    [
-                        html.P("Map style"),
-                        dcc.Dropdown(
-                            id="map-style",
+                            id="bar-function",
                             disabled=True,
                             options=[
-                                {"label": style, "value": style} for style in MAP_STYLES
+                                {"label": function, "value": function} for function in BAR_AGG_FUNCTIONS
                             ],
+                            value="count",
+                        ),
+                    ],
+                    style=component_style,
+                ),
+                html.Div(
+                    [
+                        html.P("Y-axis variable"),
+                        dcc.Dropdown(
+                            id="bar-y",
+                            disabled=True,
                         ),
                     ],
                     style=component_style,
@@ -47,9 +49,9 @@ map_components = html.Div(
             [
                 html.Div(
                     [
-                        html.P("Marker color"),
+                        html.P("Bar color"),
                         dcc.Dropdown(
-                            id="map-color",
+                            id="bar-color",
                             disabled=True,
                         ),
                     ],
@@ -57,21 +59,14 @@ map_components = html.Div(
                 ),
                 html.Div(
                     [
-                        html.P("Marker size"),
+                        html.P("Bar mode"),
                         dcc.Dropdown(
-                            id="map-size",
+                            id="bar-mode",
                             disabled=True,
-                        ),
-                    ],
-                    style=component_style,
-                ),
-                html.Div(
-                    [
-                        html.P("Hover data"),
-                        dcc.Dropdown(
-                            id="map-hover",
-                            multi=True,
-                            disabled=True,
+                            options=[
+                                {"label": mode, "value": mode} for mode in ["relative", "group", "overlay"]
+                            ],
+                            value="relative",
                         ),
                     ],
                     style=component_style,

@@ -1,6 +1,6 @@
 import plotly.express as px
 import pandas as pd
-from src.layout.graphs import transparent_plot
+from src.layout.graph_style import transparent_plot
 
 
 def line_plot(data, x, y, color, function):
@@ -10,6 +10,7 @@ def line_plot(data, x, y, color, function):
         x=x,
         y=y,
         color=color,
+        title=f"Line plot - {x} vs {function} {y}"
     ).update_layout(transparent_plot)
 
 
