@@ -53,6 +53,7 @@ def to_panel_layout():
                             )
                         ],
                         href=config["LINKEDIN_PROFILE_URL"],
+                        target="_blank",
                     ),
                 ],
                 style={
@@ -75,6 +76,7 @@ def to_panel_layout():
                             )
                         ],
                         href=config["GITHUB_REPO_URL"],
+                        target="_blank",
                     ),
                 ],
                 style={

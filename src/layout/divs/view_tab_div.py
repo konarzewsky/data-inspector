@@ -20,6 +20,16 @@ def view_tab_layout():
                 },
                 page_size=12,
             ),
+            html.P(
+                [
+                    "Filtering syntax ",
+                    html.A(
+                        "documentation",
+                        href="https://dash.plotly.com/datatable/filtering",
+                        target="_blank",
+                    ),
+                ],
+            ),
         ],
         style=main_tab_content_style(),
     )
