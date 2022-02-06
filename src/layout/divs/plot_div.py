@@ -32,15 +32,21 @@ def plot_div(plot_name, components):
                 children=[
                     html.Div(
                         [
-                            dcc.Graph(
-                                id=f"{plot_name}-graph",
-                                figure={
-                                    "layout": transparent_plot,
-                                },
-                                style={
-                                    "height": "75vh",
-                                    "width": "75vw",
-                                },
+                            dcc.Loading(
+                                id=f"{plot_name}-graph-loading",
+                                type="circle",
+                                children=[
+                                    dcc.Graph(
+                                        id=f"{plot_name}-graph",
+                                        figure={
+                                            "layout": transparent_plot,
+                                        },
+                                        style={
+                                            "height": "75vh",
+                                            "width": "75vw",
+                                        },
+                                    ),
+                                ],
                             ),
                         ],
                         style=dict(
