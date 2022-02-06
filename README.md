@@ -2,6 +2,8 @@
 
 Go to https://data-inspector.herokuapp.com/ and get to know your data!
 
+Note: loading the app may take a while as it sleeps when there is no user activity
+
 ## Project goal
 
 The most important thing while working on any data related task is to know what exactly is in your dataset. Having a quick glance on your file may not be enough to prepare suitable strategy for your project. Once you know what your data looks like you might want to go deeper and search for some patterns or detailed statistics. Very usefull in understanding your data can be interactive visualisations. You can do it all with the **Data inspector** application.
