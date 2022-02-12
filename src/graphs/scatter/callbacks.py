@@ -4,6 +4,7 @@ from dash.exceptions import PreventUpdate
 
 from src.utils import prepare_logger
 from src.graphs import scatter_plot
+from src.functions import save_figure
 
 
 logger = prepare_logger()
@@ -56,6 +57,8 @@ def init_callbacks_scatter(app):
             logger.info("Creating scatter plot - done")
         else:
             logger.warning("Creating scatter plot - failed")
+        if figure:
+            save_figure(figure, "scatter")
         return (
             figure if figure else no_update,
             message,

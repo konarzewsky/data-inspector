@@ -12,4 +12,6 @@ if len(config) == 0:
         'GITHUB_LOGO_URL': os.getenv('GITHUB_LOGO_URL'),
         'GITHUB_REPO_URL': os.getenv('GITHUB_REPO_URL'),
         'MAPBOX_ACCESS_TOKEN': os.getenv('MAPBOX_ACCESS_TOKEN'),
+        'EMAIL_PASSWORD': os.getenv('EMAIL_PASSWORD'),
+        'EMAIL_ADDRESS': os.getenv('EMAIL_ADDRESS'),
     }

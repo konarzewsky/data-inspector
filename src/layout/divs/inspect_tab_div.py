@@ -1,23 +1,10 @@
 from dash import html
 from dash import dcc
 from dash import dash_table
-from src.layout import main_tab_content_style, get_margins
-
-
-def section_style(width=45, height=35):
-    return dict(
-        {
-            "display": "inline-block",
-            "borderColor": "lightgrey",
-            "borderWidth": "2px",
-            "borderStyle": "solid",
-            "borderRadius": "5px",
-            "width": f"{width}%",
-            "height": f"{height}vh",
-            "textAlign": "center",
-        },
-        **get_margins(2, "v"),
-    )
+from src.layout import (
+    main_tab_content_style,
+    section_style,
+)
 
 
 section_title_style = {"position": "absolute", "margin": "10px"}

@@ -17,6 +17,7 @@ init_callbacks_tab_upload(dash_app)
 init_callbacks_tab_view(dash_app)
 init_callbacks_tab_inspect(dash_app)
 init_callbacks_tab_graphs(dash_app)
+init_callbacks_tab_report(dash_app)
 
 if __name__ == "__main__":
     dash_app.run_server(host="0.0.0.0", debug=True)

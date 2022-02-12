@@ -4,6 +4,7 @@ from dash.exceptions import PreventUpdate
 
 from src.utils import prepare_logger
 from src.graphs import line_plot
+from src.functions import save_figure
 
 
 logger = prepare_logger()
@@ -41,4 +42,6 @@ def init_callbacks_line(app):
             return no_update, "Select aggregate function"
         figure = line_plot(data, x, y, color, function)
         logger.info("Creating line plot - done")
+        if figure:
+            save_figure(figure, "line")
         return figure if figure else no_update, ""

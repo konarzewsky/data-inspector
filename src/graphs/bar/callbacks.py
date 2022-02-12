@@ -4,6 +4,7 @@ from dash.exceptions import PreventUpdate
 
 from src.utils import prepare_logger
 from src.graphs import bar_plot
+from src.functions import save_figure
 
 
 logger = prepare_logger()
@@ -56,4 +57,6 @@ def init_callbacks_bar(app):
             return no_update, "Select Y-axis variable to calculate sums"
         figure = bar_plot(data, x, y, function, color, mode)
         logger.info("Creating bar plot - done")
+        if figure:
+            save_figure(figure, "bar")
         return figure if figure else no_update, ""

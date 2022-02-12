@@ -6,6 +6,7 @@ from src.utils import prepare_logger
 from src.graphs import map_plot
 from src.functions import check_coordinates
 from config.env_config import config
+from src.functions import save_figure
 
 
 logger = prepare_logger()
@@ -49,4 +50,6 @@ def init_callbacks_map(app):
             data, lat, lon, style, color, size, hover, config["MAPBOX_ACCESS_TOKEN"]
         )
         logger.info("Creating map plot - done")
+        if figure:
+            save_figure(figure, "map")
         return figure if figure else no_update, ""

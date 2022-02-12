@@ -19,6 +19,7 @@ def init_callbacks_tab_upload(app):
         Output("tab-view", "disabled"),
         Output("tab-inspect", "disabled"),
         Output("tab-graphs", "disabled"),
+        Output("tab-report", "disabled"),
         Output("upload-data", "style"),
         Input("upload-data", "contents"),
         State("upload-data", "filename"),
@@ -37,6 +38,7 @@ def init_callbacks_tab_upload(app):
                 True,
                 True,
                 True,
+                True,
                 upload_style,
             )
         logger.info(f"Uploading file {filename} - in progress...")
@@ -51,6 +53,7 @@ def init_callbacks_tab_upload(app):
                 False,
                 False,
                 False,
+                False,
                 upload_style,
             )
         else:
@@ -60,6 +63,7 @@ def init_callbacks_tab_upload(app):
                 True,
                 message,
                 None,
+                True,
                 True,
                 True,
                 True,
