@@ -4,6 +4,7 @@ from dash.exceptions import PreventUpdate
 
 from src.utils import prepare_logger
 from src.graphs import box_plot
+from src.functions import save_figure
 
 
 logger = prepare_logger()
@@ -36,4 +37,6 @@ def init_callbacks_box(app):
             return no_update, "Select aggregate function"
         figure = box_plot(data, main, group, color)
         logger.info("Creating box plot - done")
+        if figure:
+            save_figure(figure, "box")
         return figure if figure else no_update, ""

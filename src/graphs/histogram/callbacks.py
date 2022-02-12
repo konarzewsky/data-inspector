@@ -4,6 +4,7 @@ from dash.exceptions import PreventUpdate
 
 from src.utils import prepare_logger
 from src.graphs import histogram_plot
+from src.functions import save_figure
 
 
 logger = prepare_logger()
@@ -38,4 +39,6 @@ def init_callbacks_histogram(app):
             return no_update, "Select variable"
         figure = histogram_plot(data, x, color, bins, norm)
         logger.info("Creating histogram plot - done")
+        if figure:
+            save_figure(figure, "histogram")
         return figure if figure else no_update, ""

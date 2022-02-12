@@ -32,3 +32,19 @@ def main_tab_content_style(height=75):
         "backgroundColor": "white",
         "height": f"{height}vh",
     }
+
+
+def section_style(width=45, height=35):
+    return dict(
+        {
+            "display": "inline-block",
+            "borderColor": "lightgrey",
+            "borderWidth": "2px",
+            "borderStyle": "solid",
+            "borderRadius": "5px",
+            "width": f"{width}%",
+            "height": f"{height}vh",
+            "textAlign": "center",
+        },
+        **get_margins(2, "v"),
+    )

@@ -4,6 +4,7 @@ from dash.exceptions import PreventUpdate
 
 from src.utils import prepare_logger
 from src.graphs import corr_plot
+from src.functions import save_figure
 
 
 logger = prepare_logger()
@@ -23,4 +24,6 @@ def init_callbacks_corr(app):
         logger.info("Creating corr plot - in progress...")
         figure = corr_plot(data, method)
         logger.info("Creating corr plot - done")
+        if figure:
+            save_figure(figure, "corr")
         return figure if figure else no_update, ""

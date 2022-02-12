@@ -1,11 +1,9 @@
 import pandas as pd
-
 from dash import no_update
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
-
+from src.functions import save_figure
 from src.utils import prepare_logger
-
 
 logger = prepare_logger()
 
@@ -39,12 +37,13 @@ def init_callbacks_tab_inspect(app):
             }
         ).reset_index(drop=True)
         df_info["missing values"] = df_info["missing values"].apply(
-            lambda x: f"{len(df) - x} ({round(100*(len(df) - x)/len(df), 3)}%)"
+            lambda x: f"{len(df) - x} ({round(100*(len(df) - x)/len(df), 2)}%)"
         )
         columns = [
             {"name": i, "id": i, "presentation": "markdown"} for i in df_info.columns
         ]
         logger.info("Preparing info table - done")
+        save_figure(df_info, "df_info", table=True)
         return df_info.to_dict("records"), columns
 
     @app.callback(
@@ -55,16 +54,17 @@ def init_callbacks_tab_inspect(app):
     def prepare_stats_table(data):
         df = pd.DataFrame(data)
         logger.info("Preparing stats table - in progress...")
-        df_info = (
+        df_stats = (
             df.describe(include="all")
-            .round(3)
+            .round(2)
             .transpose()
             .reset_index()
             .rename(columns={"index": "variable"})
             .fillna("")
         )
         columns = [
-            {"name": i, "id": i, "presentation": "markdown"} for i in df_info.columns
+            {"name": i, "id": i, "presentation": "markdown"} for i in df_stats.columns
         ]
         logger.info("Preparing stats table - done")
-        return df_info.to_dict("records"), columns
+        save_figure(df_stats, "df_stats", table=True)
+        return df_stats.to_dict("records"), columns
