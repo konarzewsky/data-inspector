@@ -68,6 +68,7 @@ def save_figure(figure, file_name, table=False):
             tbl_cells=dict(
                 align="right",
                 font_size=8,
+                height=20,
                 line_color="darkslategray",
             ),
             row_fill_color=("#ffffff", "#d7d8d6"),
@@ -80,13 +81,13 @@ def generate_pdf():
     pdf = FPDF(unit = "pt", format = "legal")
 
     path = Path(__file__).resolve().parents[0] / "pdf" / "tables"
-    pdf.add_page()
     for table in os.listdir(path):
+        pdf.add_page()
         pdf.image(str((path / table).resolve()), x = None, y = None, w = 0, h = 0, type = '', link = '')
 
     path = Path(__file__).resolve().parents[0] / "pdf" / "plots"
-    pdf.add_page("L")
     for plot in os.listdir(path):
+        pdf.add_page("L")
         pdf.image(str((path / plot).resolve()), x = None, y = None, w = 0, h = 0, type = '', link = '')
 
     path = Path(__file__).resolve().parents[0] / "pdf" 

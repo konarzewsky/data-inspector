@@ -28,6 +28,7 @@ Project is based mostly on ```dash```, ```plotly``` and ```pandas``` packages.
     - box plot
     - map
     - correlation plot
+- PDF report with dataset characterictics and created graphs (can be directly downloaded or sent to provided email address)
 
 ## How to run it locally?
 
