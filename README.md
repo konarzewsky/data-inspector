@@ -1,6 +1,6 @@
 # DATA INSPECTOR
 
-Go to https://data-inspector.herokuapp.com/ and get to know your data!
+Go to https://data-inspector.herokuapp.com/ and get to know your data! (**No longer supported! Go to ```How to run it locally?``` section**)
 
 Note: loading the app may take a while as it sleeps when there is no user activity, if the app won't load after 1-2 minutes I'd suggest running it localy (description provided below) as it's deployed on free heroku dyno with very limited resources
 
