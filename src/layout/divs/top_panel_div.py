@@ -75,7 +75,7 @@ def to_panel_layout():
                                 },
                             )
                         ],
-                        href=config["GITHUB_REPO_URL"],
+                        href=config["GITHUB_PROFILE_URL"],
                         target="_blank",
                     ),
                 ],

@@ -12,6 +12,8 @@ The most important thing while working on any data related task is to know what 
 
 **Data inspector** is a web application used for data analysis and visualisation. Application allows you to upload your own file with data (```csv```,```xls``` and ```xlsx``` formats are supported) and investigate from scratch what exactly does your dataset contain.
 
+Sample dataset can be found in root directory (```sample+data.csv```).
+
 Project is based mostly on ```dash```, ```plotly``` and ```pandas``` packages. 
 
 **Data inspector** features:
